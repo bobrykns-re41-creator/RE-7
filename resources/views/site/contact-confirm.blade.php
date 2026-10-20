@@ -10,6 +10,12 @@
         <div style="background: #f8f9fa; padding: 20px; border-radius: 4px; text-align: left; display: inline-block; width: 100%; box-sizing: border-box;">
             <p><strong>Ім'я:</strong> {{ $name }}</p>
             <p><strong>Email:</strong> {{ $email }}</p>
+            <p><strong>Телефон:</strong> {{ $phone }}</p>
+
+            @if(isset($budget))
+                <p><strong>Бюджет:</strong> {{ $budget }} грн</p>
+            @endif
+
             <p><strong>Ваш запит:</strong> {{ $message }}</p>
         </div>
 

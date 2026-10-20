@@ -27,6 +27,22 @@
                 @enderror
             </div>
 
+            <div style="margin-bottom: 15px;">
+                <label for="phone" style="display: block; font-weight: bold; margin-bottom: 5px;">Телефон</label>
+                <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" placeholder="+380XXXXXXXXX" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                @error('phone')
+                <p style="color: red; font-size: 13px; margin-top: 5px;">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="budget" style="display: block; font-weight: bold; margin-bottom: 5px;">Орієнтовний бюджет (грн, необов'язково)</label>
+                <input type="number" id="budget" name="budget" value="{{ old('budget') }}" placeholder="Наприклад, 1500" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                @error('budget')
+                <p style="color: red; font-size: 13px; margin-top: 5px;">{{ $message }}</p>
+                @enderror
+            </div>
+
             <div style="margin-bottom: 20px;">
                 <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">Яку платівку ви шукаєте?</label>
                 <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">{{ old('message') }}</textarea>
