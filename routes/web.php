@@ -36,3 +36,14 @@ Route::get(
 Route::post('/contact',
     [SiteController::class, 'contactSubmit']
 )->name('contact.store');
+
+use App\Http\Controllers\CountryController;
+
+Route::resource(
+    'country',
+    CountryController::class
+);
+
+use App\Http\Controllers\VinylController;
+
+Route::resource('vinyls', VinylController::class);
