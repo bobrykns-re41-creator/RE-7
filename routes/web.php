@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\VinylController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-use App\Http\Controllers\SiteController;
 
 Route::get(
     '/say/{message?}',
@@ -37,13 +38,9 @@ Route::post('/contact',
     [SiteController::class, 'contactSubmit']
 )->name('contact.store');
 
-use App\Http\Controllers\CountryController;
-
 Route::resource(
     'country',
     CountryController::class
 );
-
-use App\Http\Controllers\VinylController;
 
 Route::resource('vinyls', VinylController::class);
