@@ -97,7 +97,7 @@
     <a href="{{ url('/') }}" class="logo">Vinyl Groove</a>
     <nav>
         <a href="{{ url('/') }}">Головна</a>
-        <a href="{{ url('/catalog') }}">Усі платівки</a>
+        <a href="{{ route('vinyls.index') }}">Каталог вінілу</a>
         <a href="{{ url('/genres/rock') }}">Rock</a>
         <a href="{{ url('/genres/alternative-metal') }}">Alternative Metal</a>
         <a href="{{ url('/genres/post-grunge') }}">Post-Grunge</a>
@@ -105,6 +105,7 @@
         <a href="{{ url('/genres/jazz') }}">Jazz</a>
         <a href="{{ url('/equipment') }}">Програвачі</a>
         <a href="{{ url('/contact') }}">Контакти</a>
+        <a href="{{ route('country.index') }}">Країни</a>
     </nav>
 </header>
 
