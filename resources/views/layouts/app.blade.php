@@ -106,6 +106,7 @@
         <a href="{{ url('/equipment') }}">Програвачі</a>
         <a href="{{ url('/contact') }}">Контакти</a>
         <a href="{{ route('country.index') }}">Країни</a>
+        <a href="{{ route('stats.pages') }}">Статистика</a>
     </nav>
 </header>
 
