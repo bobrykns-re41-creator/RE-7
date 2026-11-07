@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\VinylController;
+use App\Http\Middleware\TrackVisit;
+use App\Http\Controllers\StatsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,3 +46,17 @@ Route::resource(
 );
 
 Route::resource('vinyls', VinylController::class);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/stats',[StatsController::class, 'pages'])
+    ->name('stats.pages');
+
+Route::get(
+    '/stats/detail',
+    [StatsController::class, 'detail']
+)->name('stats.detail');
+
+Route::get('/stats/popular', [StatsController::class, 'popularVinyls'])->name('stats.popular');
