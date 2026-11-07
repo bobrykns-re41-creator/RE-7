@@ -89,6 +89,145 @@
         .footer-links a:hover {
             opacity: 0.7;
         }
+
+        /* Сітка карток */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        /* Сама картка (темна тема) */
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            background: #1e1e1e; /* Темний фон картки */
+            border: 1px solid #333; /* Тонка рамка */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: #d4af37; /* Золотий акцент при наведенні */
+        }
+
+        /* Зображення та бейдж категорії */
+        .blog-card-thumbnail {
+            position: relative;
+            margin: 0;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #111; /* Заглушка, якщо фото вантажиться довго */
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-card-image {
+            transform: scale(1.05); /* Легкий зум фото при наведенні */
+        }
+
+        /* Плашка категорії поверх фото */
+        .blog-category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #d4af37; /* Золотий фірмовий колір */
+            color: #111;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Тіло картки (текстова частина) */
+        .blog-card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        /* Заголовок */
+        .blog-title {
+            margin: 0 0 12px 0;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .blog-title a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .blog-title a:hover {
+            color: #d4af37;
+        }
+
+        /* Мета-дані (автор, дата) */
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #999999;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .blog-meta svg {
+            margin-right: 6px;
+            vertical-align: -2px;
+            color: #d4af37; /* Іконки золотим кольором */
+        }
+
+        /* Короткий опис */
+        .blog-excerpt {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1; /* Відштовхує кнопку завжди вниз */
+        }
+
+        /* Кнопка "Читати далі" */
+        .blog-card-footer {
+            margin-top: auto;
+        }
+
+        .blog-read-more {
+            display: block;
+            padding: 12px 20px;
+            background: transparent;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .blog-read-more:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
     </style>
 </head>
 <body>
