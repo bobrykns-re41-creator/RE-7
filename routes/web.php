@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FilterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CountryController;
@@ -67,4 +68,15 @@ Route::get(
     [BlogController::class, 'admin']
 )->name('blog.admin');
 
+Route::get(
+    '/blog/{blog}/tags',
+    [BlogController::class, 'tags']
+)->name('blog.tags');
+Route::post(
+    '/blog/{blog}/tags',
+    [BlogController::class, 'tagsStore']
+)->name('blog.tags.store');
+
 Route::resource('blog', BlogController::class);
+
+Route::resource('filters', FilterController::class)->except(['show']);
