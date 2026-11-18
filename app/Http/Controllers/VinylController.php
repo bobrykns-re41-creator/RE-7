@@ -38,6 +38,7 @@ class VinylController extends Controller
 
     public function show(Vinyl $vinyl)
     {
+        $vinyl->load('translations');
         return view('vinyls.show', compact('vinyl'));
     }
 

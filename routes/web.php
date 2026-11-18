@@ -6,6 +6,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\VinylController;
 use App\Http\Middleware\TrackVisit;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -60,3 +61,10 @@ Route::get(
 )->name('stats.detail');
 
 Route::get('/stats/popular', [StatsController::class, 'popularVinyls'])->name('stats.popular');
+
+Route::get(
+    '/blog/admin',
+    [BlogController::class, 'admin']
+)->name('blog.admin');
+
+Route::resource('blog', BlogController::class);
