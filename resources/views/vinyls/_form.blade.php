@@ -16,6 +16,18 @@
     @error('genre') <p style="color: #ff5252; margin-top: 5px; font-size: 13px;">{{ $message }}</p> @enderror
 </div>
 
+<div style="margin-bottom: 15px;">
+    <label for="genres" style="display: block; color: #d4af37; font-weight: bold; margin-bottom: 5px;">Теги / піджанри</label>
+    <select id="genres" name="genres[]" multiple style="width: 100%;">
+        @foreach ($genres as $id => $name)
+            <option value="{{ $id }}" @selected(in_array($id, old('genres', $selected ?? [])))>
+                {{ $name }}
+            </option>
+        @endforeach
+    </select>
+    @error('genres') <p style="color: #ff5252; margin-top: 5px; font-size: 13px;">{{ $message }}</p> @enderror
+</div>
+
 <div style="display: flex; gap: 15px; margin-bottom: 20px;">
     <div style="flex: 1;">
         <label style="display: block; color: #d4af37; font-weight: bold; margin-bottom: 5px;">Рік випуску</label>

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Vinyl Groove | Магазин платівок')</title>
+    @vite(['resources/css/app.css','resources/js/app.js'])
 
     <style>
         body {
@@ -227,6 +228,15 @@
             background: #d4af37;
             color: #111;
         }
+
+        .bootstrap-duallistbox-container { display: flex; gap: 20px; max-width: 720px;
+        }
+
+        .bootstrap-duallistbox-container .box1,
+
+        .bootstrap-duallistbox-container .box2 { flex: 1; min-width: 0; }
+
+        .bootstrap-duallistbox-container select { width: 100%; height: 190px; }
 
     </style>
 </head>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Vinyl extends Model
 {
@@ -25,5 +26,15 @@ class Vinyl extends Model
         $translation = $this->translations->where('locale', $locale)->first();
 
         return $translation ? $translation->{$field} : $this->{$field};
+    }
+
+    public function genres(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Genre::class,
+            'genre_vinyl',
+            'vinyl_id',
+            'genre_id'
+        );
     }
 }

@@ -19,6 +19,16 @@
             <p style="margin-bottom: 10px;"><strong style="color: #d4af37;">Жанр:</strong> {{ $vinyl->genre }}</p>
             <p style="margin-bottom: 10px;"><strong style="color: #d4af37;">Рік випуску:</strong> {{ $vinyl->year }}</p>
             <p style="margin-bottom: 0;"><strong style="color: #d4af37;">Ціна:</strong> <span style="font-size: 1.2em; color: #4CAF50;">{{ number_format($vinyl->price, 2, ',', ' ') }} ₴</span></p>
+            <p style="margin-top: 10px; margin-bottom: 0;">
+                <strong style="color: #d4af37;">Теги / піджанри ({{ $vinyl->genres_count }}):</strong>
+                @forelse ($vinyl->genres as $genre)
+                    <span style="display: inline-block; background: #1a1a1a; color: #d4af37; border: 1px solid #d4af37; padding: 2px 8px; border-radius: 4px; font-size: 13px; margin-left: 5px;">
+            {{ $genre->name }}
+        </span>
+                @empty
+                    <span style="color: #aaa;">не вказано</span>
+                @endforelse
+            </p>
         </div>
 
         <div style="background: #2a2a2a; padding: 20px; border-left: 4px solid #d4af37; border-radius: 4px; margin-top: 20px;">

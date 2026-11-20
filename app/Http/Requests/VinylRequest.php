@@ -16,6 +16,8 @@ class VinylRequest extends FormRequest
             'genre'  => ['required', 'string', 'max:100'],
             'year'   => ['required', 'integer', 'min:1920', 'max:' . date('Y')],
             'price'  => ['required', 'numeric', 'min:0'],
+            'genres'   => ['sometimes', 'array'],
+            'genres.*' => ['integer', 'distinct', 'exists:genres,genre_id'],
         ];
     }
 }
