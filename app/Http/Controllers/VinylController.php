@@ -7,24 +7,29 @@ use App\Http\Requests\VinylRequest;
 use Illuminate\Http\Request;
 use App\Models\Genre;
 use Illuminate\Support\Arr;
+use App\Queries\VinylFilter;
 
 class VinylController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, VinylFilter $filter)
     {
-        $query = Vinyl::query();
+        $input = $request->validate([
+            'genre'     => ['nullable', 'string', 'max:100'],
+            'artist'    => ['nullable', 'string', 'max:255'],
+            'title'     => ['nullable', 'string', 'max:255'],
+            'genreName' => ['nullable', 'string', 'max:100'],
+            'genre_id'  => ['nullable', 'integer', 'exists:genres,genre_id'],
+            'sort'      => ['nullable', 'string', 'max:30'],
+        ]);
 
-        if ($request->filled('genre')) {
-            $query->where('genre', $request->genre);
-        }
+        $vinyls = $filter->apply($input)
+            ->paginate(5)
+            ->withQueryString();
 
-        // зберігає параметр фільтру при переході між сторінками
-        $vinyls = $query->orderBy('artist')->paginate(5)->withQueryString();
-
-        // отримуємо унікальні жанри для випадаючого списку фільтра
         $genres = Vinyl::select('genre')->distinct()->pluck('genre');
+        $subgenres = Genre::orderBy('name')->pluck('name', 'genre_id');
 
-        return view('vinyls.index', compact('vinyls', 'genres'));
+        return view('vinyls.index', compact('vinyls', 'genres', 'subgenres'));
     }
 
     public function create()
